@@ -2,16 +2,20 @@
   "name": "m7-d2-intro-express",
   "version": "1.0.0",
   "description": "",
-  "main": "app.js",
+  "main": "index.js",
   "type": "module",
   "scripts": {
-    "dev": "nodemon app.js",
-    "start": "node app.js",
+    "dev": "nodemon index.js",
+    "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Raul Espinoza M",
   "license": "ISC",
   "dependencies": {
+    "dotenv": "^16.4.5",
     "express": "^4.19.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.0"
   }
 }
