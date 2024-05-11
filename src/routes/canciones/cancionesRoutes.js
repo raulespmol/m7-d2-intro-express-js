@@ -9,4 +9,15 @@ cancionesRoutes.get('/', (req, res) => {
   res.json(canciones)
 })
 
+cancionesRoutes.post('/', (req, res) => {
+  const cancion = req.body
+  const canciones = JSON.parse(readFileSync(dataCanciones, 'utf-8'))
+
+  canciones.push(cancion)
+
+  writeFileSync(dataCanciones, JSON.stringify(canciones))
+
+  res.send('Cancion agregada')
+})
+
 export default cancionesRoutes
