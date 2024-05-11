@@ -36,4 +36,15 @@ cancionesRoutes.put('/:id', (req, res) => {
   res.send('Cancion actualizada')
 })
 
+cancionesRoutes.delete('/:id', (req, res) => {
+  const {id} = req.params
+  const canciones = JSON.parse(readFileSync(dataCanciones, 'utf-8'))
+
+  const updateCanciones = canciones.filter(c => c.id != id)
+
+  writeFileSync(dataCanciones, JSON.stringify(updateCanciones))
+
+  res.send('Cancion eliminada')
+})
+
 export default cancionesRoutes
