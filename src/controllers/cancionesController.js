@@ -15,6 +15,8 @@ export const agregarCancion = (req, res) => {
 
   writeFileSync(dataCanciones, JSON.stringify(canciones))
 
+  console.log('Cancion agregada')
+  console.log(cancion)
   res.send('Cancion agregada')
 }
 
@@ -31,6 +33,8 @@ export const actualizarCancion = (req, res) => {
 
   writeFileSync(dataCanciones, JSON.stringify(updateCanciones))
 
+  console.log(`Cancion ID:${id} actualizada`)
+  console.log(updateCancion)
   res.send('Cancion actualizada')
 }
 
@@ -42,5 +46,6 @@ export const eliminarCancion = (req, res) => {
 
   writeFileSync(dataCanciones, JSON.stringify(updateCanciones))
 
+  console.log(`Cancion ID:${id} eliminada`)
   res.send('Cancion eliminada')
 }
