@@ -20,4 +20,20 @@ cancionesRoutes.post('/', (req, res) => {
   res.send('Cancion agregada')
 })
 
+cancionesRoutes.put('/:id', (req, res) => {
+  const {id} = req.params
+  const updateCancion = req.body
+  const canciones = JSON.parse(readFileSync(dataCanciones, 'utf-8'))
+
+  const updateCanciones = canciones.map(cancion => (
+    cancion.id == id 
+    ? {...updateCancion} 
+    : cancion
+  ))
+
+  writeFileSync(dataCanciones, JSON.stringify(updateCanciones))
+
+  res.send('Cancion actualizada')
+})
+
 export default cancionesRoutes
